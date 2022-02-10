@@ -3,34 +3,38 @@ import { useEffect , useState } from 'react';
 import { getArticles,getArticlesTopic } from '../api';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-
+import { getArticlesQuery } from '../api';
 const Articles = () => {
     const [articles , setArticles] = useState([]);
     const [topic , setTopic] = useState("All");
     const [isLoading, setIsLoading] = useState(true);
+    const [query , setQuery] = useState("All")
    
     useEffect(()=>{
         if (topic === "All"){
-            getArticles().then((res) => {
+            getArticles(query).then((res) => {
               setArticles(res);
               setIsLoading(false);
             });
-          }else {
-            getArticlesTopic(topic).then((res) => {
+          }else if (topic === "cooking"|| topic === "coding" || topic ==="football" ) {
+            getArticlesTopic(topic,query).then((res) => {
                 
             setArticles(res);
             setIsLoading(false);
           });
         }
-       
-    },[topic]);
+        },[topic ,query]);
 
     function handleChange(event){
         setTopic(event.target.value)
     }
 
+    function handleQuery(event){
+      setQuery(event.target.value)
+      
+    }
     return isLoading ? (
-      <p>...isLoading</p>
+      <p>:hourglass:</p>
     ) : (
         <>
       <p>Choose a topic from the list </p>
@@ -47,8 +51,20 @@ const Articles = () => {
       
       </form>
     
+      <form >
+        <label htmlFor="queries">Please Choose:</label>
+        <select name="queries" id="queries" onChange={handleQuery}>
+          <option value="All">All</option>
+          <option value="created_at">Date</option>
+          <option value="comment_count">Comment Count</option>
+          <option value="votes">Votes</option>
+        </select>
+        <br></br>
+
+      
+      </form>
+
    <div>
-     <ul>
        {articles.map((article) => {
             return (
                 <>
@@ -58,13 +74,14 @@ const Articles = () => {
                 <Card.Body>
                   <Card.Title>{article.title}</Card.Title>
                 </Card.Body>
+                <br />
                 </Card>
+                <br />
                </Link>
 <br />
                 </>
             );
           })}
-          </ul>
 
 
         </div>
