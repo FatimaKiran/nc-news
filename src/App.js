@@ -1,4 +1,4 @@
-import './App.css';
+import './CSS/App.css';
 import Home from './components/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
@@ -8,10 +8,11 @@ import Article from './components/Article';
 import Comment from './components/Comment';
 import {UserContext} from './User.js';
 import { useState } from 'react';
+import Error from './components/Error'
 
 
 function App() {
-  const [loggedInUser , setLoggedInUser] = useState({username:"jess"});
+  const [loggedInUser , setLoggedInUser] = useState({username:"jessjelly"});
   const isLoggedIn = loggedInUser !== null;
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
             <Route path="/topics" element={<  Topics />} />
             <Route path="/articles/:article_id" element={<Article />} />
             <Route path="/articles/:article_id/comments" element={<Comment />} />
+            <Route path="*" element={Error} />
             
           </Routes>
           </UserContext.Provider>

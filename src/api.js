@@ -15,6 +15,7 @@ export const getTopics = () => {
     }
 
    
+    
 export const getArticles = (query) => {
   let path = '/articles';
   if(query && query!=="All") path += `?sort_by=${query}`;
@@ -31,7 +32,6 @@ export const getArticles = (query) => {
       return ncNewsApi.get(path).then((res) => {
         console.log(res.data.articles);
         return (res.data.articles);
-    
       });
     };
 
@@ -63,38 +63,15 @@ export const getArticles = (query) => {
   })
 }
 
- export const postCommentByArticleId = (article_id, comment ,name) =>{
-  return ncNewsApi.post(`/articles/${article_id}/comments`,{
+ export const postCommentByArticleId = (article_id, comment ,name) =>{ 
+   console.log(name);  return ncNewsApi.post(`/articles/${article_id}/comments`,{
     body:comment, username:name
   }).then((res)=>{
-    console.log(res.data.comment);
-  }) }
+  }) 
+}
 
-
-    // <ul>
-    //         {articles.map((article) => {
-    //         return (
-    //             <>
-    //             <li key={article.article_id}> {article.topic}
-    //             <br />
-    //             {article.title}
-    //             <br />
-    //             {article.article_id}
-    //             </li>
-    //             </>
-    //         );
-    //       })}
-    //       </ul>
-
-
-  //   <Card style={{ width: '18rem' }}>
-  //   <Card.Body>
-  //     <Card.Title>Card Title</Card.Title>
-  //     <Card.Text>
-  //       Some quick example text to build on the card title and make up the bulk of
-  //       the card's content.
-  //     </Card.Text>
-  //     <Button variant="primary">Go somewhere</Button>
-  //   </Card.Body>
-  // </Card>
-  
+export const deleteCommentById = (comment_id) =>{
+  return ncNewsApi.delete(`/comments/${comment_id}`).then(()=>{
+    alert("comment deleted");
+  });
+}

@@ -4,6 +4,8 @@ import { getArticles,getArticlesTopic } from '../api';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { getArticlesQuery } from '../api';
+import '../CSS/articles.css';
+
 const Articles = () => {
     const [articles , setArticles] = useState([]);
     const [topic , setTopic] = useState("All");
@@ -31,10 +33,11 @@ const Articles = () => {
 
     function handleQuery(event){
       setQuery(event.target.value)
-      
     }
+
+    
     return isLoading ? (
-      <p>:hourglass:</p>
+      <p> 🌐LOADING....🌐 </p>
     ) : (
         <>
       <p>Choose a topic from the list </p>
@@ -46,10 +49,11 @@ const Articles = () => {
           <option value="football">football</option>
           <option value="coding">Coding</option>
         </select>
-        <br></br>
+        
 
       
       </form>
+      <br />
     
       <form >
         <label htmlFor="queries">Please Choose:</label>
@@ -65,10 +69,12 @@ const Articles = () => {
       </form>
 
    <div>
+   
        {articles.map((article) => {
             return (
-                <>
-               <Link key={article.article_id} to={`/articles/${article.article_id}`}>
+              
+                <div className="main">
+               <Link  key={article.article_id} to={`/articles/${article.article_id}`}>
                 <Card style={{ width: '23em' }}>
                  <Card.Header>{article.topic}</Card.Header>
                 <Card.Body>
@@ -79,7 +85,7 @@ const Articles = () => {
                 <br />
                </Link>
 <br />
-                </>
+                </div>
             );
           })}
 
