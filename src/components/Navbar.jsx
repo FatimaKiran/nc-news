@@ -1,22 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Nav from 'react-bootstrap/Nav';
-import '../CSS/nav.css';
-import { useContext } from 'react';
-import { UserContext } from '../User';
+import React from "react";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Style from "../nav.module.css";
+import { useContext } from "react";
+import { UserContext } from "../User";
 
 const Navbar = () => {
-  const {loggedInUser} = useContext(UserContext);
-    return (
-      <ul className='ul'>
-       <Nav> 
-      <li className='li'>  <Nav.Link className="a" href="/">Home</Nav.Link> </li>
-      <li  className='li'>     <Nav.Link className="a"  href="/topics">Topics</Nav.Link></li>
-      <li  className='li'>    <Nav.Link className="a"  href="/articles">Articles</Nav.Link> </li>
-      <li  className='li'> <h4 className="a">{loggedInUser.username.toUpperCase()} 🙍</h4> </li>
+  const { loggedInUser } = useContext(UserContext);
+  return (
+    <ul className={Style.ul}>
+      <Nav>
+        <li className={Style.li}>
+          <Nav.Link className={Style.a} href="/">
+            Home
+          </Nav.Link>
+        </li>
+        <li className={Style.li}>
+          <Nav.Link className={Style.a} href="/topics">
+            Topics
+          </Nav.Link>
+        </li>
+        <li className={Style.li}>
+          <Nav.Link className={Style.a} href="/articles">
+            Articles
+          </Nav.Link>
+        </li>
       </Nav>
-      </ul>
-    );
+    </ul>
+  );
 };
 
 export default Navbar;

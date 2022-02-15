@@ -1,0 +1,27 @@
+.div {
+  background-color: #f2ebe9;
+  text-align: center;
+  color: darkgreen;
+  border-radius: 5px;
+  padding: 3rem;
+  box-shadow: -3px 3px 5px 0px #58191965;
+  border: 1px solid gray;
+}
+
+.li {
+  list-style-type: none;
+}
+.link {
+  /* text-decoration: none; */
+  color: darkgreen;
+}
+
+.main {
+  background-color: #eddcd9;
+}
+@media only screen and (min-width: 600px) {
+  .div {
+    width: 50%;
+    margin-left: 290px;
+  }
+}

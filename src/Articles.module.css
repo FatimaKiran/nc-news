@@ -1,0 +1,50 @@
+.link {
+  text-decoration: none;
+  text-align: center;
+}
+.div {
+  background-color: #eddcd9;
+  color: darkgreen;
+}
+
+.form {
+  color: darkgreen;
+}
+
+.List {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  min-height: 100vh;
+  /* color: darkgreen; */
+  /* background-color: #eddcd9; */
+}
+
+.Item {
+  margin: 1rem;
+  border-radius: 5px;
+  padding: 3rem;
+  box-shadow: -3px 3px 5px 0px #58191965;
+  border: 1px solid gray;
+  color: darkgreen;
+  background-color: #f2ebe9;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .List {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .Item {
+    width: 350px;
+    height: 270px;
+  }
+  .List {
+    margin: 70px;
+  }
+}

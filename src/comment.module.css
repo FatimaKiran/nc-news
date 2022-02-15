@@ -1,0 +1,40 @@
+.List {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  min-height: 100vh;
+  /* color: darkgreen; */
+  /* background-color: #eddcd9; */
+}
+
+.main {
+  background-color: #eddcd9;
+}
+
+.Item {
+  margin: 1rem;
+  border-radius: 5px;
+  padding: 3rem;
+  box-shadow: -3px 3px 5px 0px #58191965;
+  border: 1px solid gray;
+  color: darkgreen;
+  background-color: #f2ebe9;
+  text-align-last: center;
+}
+.delete {
+  margin-bottom: 0%;
+  position: relative;
+}
+
+@media only screen and (min-width: 600px) {
+  .List {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px;
+  }
+  .Item {
+    width: 350px;
+    height: 350px;
+    padding: 3px;
+  }
+}
