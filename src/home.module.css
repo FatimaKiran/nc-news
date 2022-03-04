@@ -1,6 +1,8 @@
 .home {
   color: darkgreen;
   background-color: #eddcd9;
+  text-align: center;
+  max-height: 100%;
 }
 
 body {

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Delete = (props) => {
   const { comment_id } = props;
+
   function deleteItem() {
     deleteCommentById(comment_id);
   }

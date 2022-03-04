@@ -37,11 +37,14 @@ const Comment = () => {
   function commentHandler(event) {
     setUserComment(event.target.value);
   }
+  {console.log( (comment[0].created_at.toLocaleString()),"here is comment")}
+
   return (
     <div className={Style.main}>
       <form>
         <label htmlFor="comments"></label>
         <br />
+
 
         <label>
           Add Your Comment: <input onChange={commentHandler} />
@@ -54,12 +57,14 @@ const Comment = () => {
         {comment.map((singleComment) => {
           return (
             <div key={singleComment.comment_id}>
+            
               <li className={Style.Item}>
-                <br />
+                <h1> {singleComment.author[0].toUpperCase()}{singleComment.author.slice(1)}</h1> <br />
+               {/* <small> {Number(singleComment.created_at).getFullYear()}</small> <br /><br />  */}
                 {singleComment.body}
                 <br /> <br />
-                Author: {singleComment.author}
-                <br /> <br />
+              
+                
                 <div className={Style.delete}>
                   <Delete comment_id={singleComment.comment_id} />
                 </div>

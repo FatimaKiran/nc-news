@@ -23,23 +23,6 @@ const Topics = () => {
   return isLoading ? (
     <p>🌐LOADING....🌐</p>
   ) : (
-    // <div class="div">
-    //   {topics.map((topic) => {
-    //     return (
-    //         <div className='c'>
-    //       <Card className='card' key={topic.slug} >
-    //          <Card.Header><h3>{topic.slug.toUpperCase()}</h3></Card.Header>
-    //          <Card.Body>
-    //             <Card.Text> {topic.description}  </Card.Text>
-    //          </Card.Body>
-    //         </Card>
-    // <br />
-    //         </div>
-    //     );
-    //   })}
-
-    // </div>
-
     <div className={Styles.div}>
       <ul className={Styles.List}>
         {topics.map((topic) => {
