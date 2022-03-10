@@ -1,3 +1,13 @@
+// const Prac =()=>{
+//     return(
+// <>
+// <h1>Helo</h1>
+// </>
+//     )
+// }
+
+// export default Prac;
+
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -58,7 +68,7 @@ const Comment = () => {
             <div key={singleComment.comment_id}>
             
               <li className={Style.Item}>
-                <h2> {singleComment.author[0].toUpperCase()}{singleComment.author.slice(1)}</h2> <br />
+                <h1> {singleComment.author[0].toUpperCase()}{singleComment.author.slice(1)}</h1> <br />
                {/* <small> {Number(singleComment.created_at).getFullYear()}</small> <br /><br />  */}
                 {singleComment.body}
                 <br /> <br />              
@@ -70,6 +80,7 @@ const Comment = () => {
           );
         })}
       </ul>
+      {/* Add Comment Section */}
     </div>
   );
 };
