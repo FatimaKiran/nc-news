@@ -22,7 +22,6 @@ export const getArticlesTopic = (topic, query) => {
   let path = `/articles?topic=${topic}`;
   if (query && query !== "All") path += `&sort_by=${query}`;
   return ncNewsApi.get(path).then((res) => {
-    console.log(res.data.articles);
     return res.data.articles;
   });
 };
