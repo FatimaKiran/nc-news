@@ -26,6 +26,16 @@
   position: relative;
 }
 
+.button{
+  border-radius: 3px !important;
+  
+}
+
+.main{
+  text-align: center;
+
+}
+
 @media only screen and (min-width: 600px) {
   .List {
     display: flex;
