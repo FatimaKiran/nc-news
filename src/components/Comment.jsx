@@ -40,17 +40,19 @@ const Comment = () => {
 
   return (
     <div className={Style.main}>
+      <div className={Style.main}>
       <form>
         <label htmlFor="comments"></label>
         <br />
 
-
+      
         <label>
           Add Your Comment: <input onChange={commentHandler} />
         </label>
-        <br />
-        <button onClick={submitHandler}>Add my comment</button>
+        <br /> <br />
+        <button className={Style.button} onClick={submitHandler}>Add my comment</button>
       </form>
+      </div>
       <br />
       <ul className={Style.List}>
         {comment.map((singleComment) => {
